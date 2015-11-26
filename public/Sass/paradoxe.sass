@@ -1,0 +1,137 @@
+// ____
+// ________
+// ________________
+// ________ PARADOXE 20 ________
+// ________ VIVE LE TIRAMISU _________
+// ________________
+// ________
+// ____
+
+
+// ________ MEYER RESET - SASSY SAUCE ________
+// ________ ON VA PAS RÉINVENTER LES ROUX ________
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video
+	margin: 0
+	padding: 0
+	border: 0
+	font-size: 100%
+	font: inherit
+	vertical-align: baseline
+// HTML5 display-role reset for older browsers
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section
+	display: block
+body
+	line-height: 1
+ol, ul
+	list-style: none
+blockquote, q
+	quotes: none
+blockquote:before, blockquote:after,
+q:before, q:after
+	content: ''
+	content: none
+table
+	border-collapse: collapse
+	border-spacing: 0
+
+// ________ RÈGLES MAGIQUES _________
+*
+	box-sizing: border-box
+img
+	max-width: 100%
+
+// ________________
+// ________ PARADOXE 20 ________
+// ________________
+
+$coln: 20 // Nombre de colonnes
+$babord: false // Offset left
+$tribord: false // Offset right
+
+$colw: 100% / $coln // Largeur des colonnes
+
+$media-xsmall: 480px // Media extra-small
+$media-small: 768px // Media small
+$media-medium: 992px // Media medium
+$media-large: 1200px // Media large
+
+$xsmall: a // Nom extra-small
+$small: b // Nom small
+$medium: c // Nom medium
+$large: d // Nom large
+
+$gauche: l // Nom margin-left
+$droite: r // Nom margin-right
+
+.flowfix::before, .flowfix::after
+	content: ' '
+	display: block
+	visibility: hidden
+	font-size: 0
+	height: 0
+	clear: both
+
+// ________ EXTRA-SMALL ________
+@media only screen and (min-width: $media-xsmall)
+	@for $i from 1 to $coln+1
+		.#{$xsmall}#{$i}
+			width: $colw * $i
+			float: left
+	@for $i from 1 to $coln+1
+		.#{$xsmall}#{$gauche}#{$i}
+			margin-left: $colw * $i
+	@for $i from 1 to $coln+1
+		.#{$xsmall}#{$droite}#{$i}
+			margin-right: $colw * $i
+
+// ________ SMALL ________
+@media only screen and (min-width: $media-small)
+	@for $i from 1 to $coln+1
+		.#{$small}#{$i}
+			width: $colw * $i
+			float: left
+	@for $i from 1 to $coln+1
+		.#{$small}#{$gauche}#{$i}
+			margin-left: $colw * $i
+	@for $i from 1 to $coln+1
+		.#{$small}#{$droite}#{$i}
+			margin-right: $colw * $i
+
+// ________ MEDIUM ________
+@media only screen and (min-width: $media-medium)
+	@for $i from 1 to $coln+1
+		.#{$medium}#{$i}
+			width: $colw * $i
+			float: left
+	@for $i from 1 to $coln+1
+		.#{$medium}#{$gauche}#{$i}
+			margin-left: $colw * $i
+	@for $i from 1 to $coln+1
+		.#{$medium}#{$droite}#{$i}
+			margin-right: $colw * $i
+
+// ________ LARGE ________
+@media only screen and (min-width: $media-large)
+	@for $i from 1 to $coln+1
+		.#{$large}#{$i}
+			width: $colw * $i
+			float: left
+	@for $i from 1 to $coln+1
+		.#{$large}#{$gauche}#{$i}
+			margin-left: $colw * $i
+	@for $i from 1 to $coln+1
+		.#{$large}#{$droite}#{$i}
+			margin-right: $colw * $i
